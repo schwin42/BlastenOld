@@ -7,6 +7,7 @@ var maxKineticEnergy : float;
 var pelletSFX : GameObject;
 var kineticPelletSFX : GameObject;
 var customGuiStyle : GUIStyle;
+var blasten : GameObject;
 private var lastShot : float;
 private var ShootRight : boolean = true;
 
@@ -64,6 +65,7 @@ function KineticShotSpawn() {
 }
 
 function KineticCharge(){
+/*
 	if (Input.GetAxis("Horizontal") == 1) {
 		KineticLevel += Time.deltaTime * kineticChargeRate;
 	}
@@ -73,6 +75,10 @@ function KineticCharge(){
 	if (Input.GetButtonDown("Jump")) {
 		KineticLevel = KineticLevel + 1;
 	}
+	*/
+
+	KineticLevel += blasten.rigidbody.velocity.magnitude * Time.deltaTime * kineticChargeRate;
+	
 	if(KineticLevel > maxKineticEnergy){
 		KineticLevel = maxKineticEnergy;
 	}
